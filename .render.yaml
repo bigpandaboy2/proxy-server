@@ -2,7 +2,7 @@ services:
   - type: web
     name: proxy-server
     env: go
-    buildCommand: go build -tags netgo -ldflags '-s -w' -o app
+    buildCommand: go build -tags netgo -ldflags '-s -w' -o app ./cmd
     startCommand: ./app
     plan: free
     branch: main
