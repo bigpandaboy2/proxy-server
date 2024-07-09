@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: proxy-server
+    env: go
+    buildCommand: go build -tags netgo -ldflags '-s -w' -o app
+    startCommand: ./app
+    plan: free
+    branch: main
+    runtime:
+      version: 1.22.4
