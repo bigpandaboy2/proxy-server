@@ -8,7 +8,6 @@ import (
     "testing"
 )
 
-// MockServer creates a mock server to simulate external service responses
 func MockServer() *httptest.Server {
     handler := http.NewServeMux()
     handler.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -24,7 +23,6 @@ func TestHandleRequest(t *testing.T) {
     mockServer := MockServer()
     defer mockServer.Close()
 
-    // Test valid request
     reqBody, _ := json.Marshal(Request{
         Method:  "GET",
         URL:     mockServer.URL,
@@ -57,7 +55,6 @@ func TestHandleRequest(t *testing.T) {
         t.Errorf("expected non-empty ID in response")
     }
 
-    // Test invalid request
     invalidReq := httptest.NewRequest(http.MethodPost, "/", bytes.NewBuffer([]byte("invalid json")))
     invalidReq.Header.Set("Content-Type", "application/json")
 

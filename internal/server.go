@@ -25,21 +25,10 @@ type Response struct {
     Length  int                 `json:"length"`
 }
 
-// NewServer creates a new Server instance
 func NewServer() *Server {
     return &Server{}
 }
 
-// HandleRequest processes incoming HTTP requests
-// @Summary Process request
-// @Description Process incoming HTTP requests and proxy them to external services
-// @Accept  json
-// @Produce  json
-// @Param   request body Request true "Request body"
-// @Success 200 {object} Response
-// @Failure 400 {object} map[string]string
-// @Failure 500 {object} map[string]string
-// @Router / [post]
 func (s *Server) HandleRequest(w http.ResponseWriter, r *http.Request) {
     var req Request
     if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
