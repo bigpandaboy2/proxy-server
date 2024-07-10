@@ -8,7 +8,7 @@ This is an HTTP server that proxies requests to external services, processes the
 
 1. Clone the repository:
     ```sh
-    git remote add origin https://github.com/bigpandaboy2/proxy-server.git
+    git clone https://github.com/bigpandaboy2/proxy-server.git
     cd proxy-server
     ```
 
@@ -24,7 +24,7 @@ This is an HTTP server that proxies requests to external services, processes the
 
 **Base URL**
 
-[https://proxy-server-ghjq.onrender.com](url)
+[https://proxy-server-ghjq.onrender.com](https://proxy-server-ghjq.onrender.com)
 
 ## API Endpoints
 
@@ -34,18 +34,21 @@ This is an HTTP server that proxies requests to external services, processes the
 
 ## Request Format
 
-```json
+```sh
 {
   "method": "GET",
   "url": "http://google.com",
-  "headers": { "Authentication": "Basic bG9naW46cGFzc3dvcmQ=" }
+  "headers": { "Authorization": "Basic bG9naW46cGFzc3dvcmQ=" }
 }
-
+```
 ## Response Format
 
-```json
+```sh
 {
-  "method": "GET",
-  "url": "http://google.com",
-  "headers": { "Authentication": "Basic bG9naW46cGFzc3dvcmQ=" }
+  "id": "123e4567-e89b-12d3-a456-426614174000",
+  "status": 200,
+  "headers": {
+    "Content-Type": ["application/json"]
+  },
+  "length": 1234
 }
