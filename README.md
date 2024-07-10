@@ -20,6 +20,12 @@ This is an HTTP server that proxies requests to external services, processes the
 
 3. Access the server at `http://localhost:8080`.
 
+## **Deployed on RENDER:**
+
+**Base URL**
+
+[https://proxy-server-ghjq.onrender.com](url)
+
 ## API Endpoints
 
 - `POST /` - Proxy requests to external services.
@@ -27,6 +33,15 @@ This is an HTTP server that proxies requests to external services, processes the
 - `GET /swagger/` - Swagger API documentation.
 
 ## Request Format
+
+```json
+{
+  "method": "GET",
+  "url": "http://google.com",
+  "headers": { "Authentication": "Basic bG9naW46cGFzc3dvcmQ=" }
+}
+
+## Response Format
 
 ```json
 {
